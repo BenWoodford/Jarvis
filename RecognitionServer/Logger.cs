@@ -45,5 +45,15 @@ namespace RecognitionServer
         {
             this.Print(s, "SEVERE");
         }
+
+        public void Info(String s)
+        {
+            this.Print(s, "Server");
+        }
+
+        public void Warn(String s)
+        {
+            this.Print(s, "WARNING");
+        }
     }
 }

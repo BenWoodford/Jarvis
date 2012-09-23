@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RecognitionServer.Entities;
 
 namespace RecognitionServer
 {
     class RecognitionPlugin
     {
-        public static void onRecognise(RecognitionServer.Main m, String text) { }
-        public static void onEnable(RecognitionServer.Main m) { }
+        public virtual void onRecognise(Command comm, String text = "") { }
+        public virtual void onEnable(RecognitionServer.Main m) { }
     }
 }
