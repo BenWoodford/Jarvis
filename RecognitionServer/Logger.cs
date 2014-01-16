@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using JarvisSDK;
 
 namespace RecognitionServer
 {
-    class Logger
+    class Logger : ILogger
     {
         Boolean _ToFile = false;
 
@@ -28,7 +29,7 @@ namespace RecognitionServer
             }
         }
 
-        public static void Log(string logMessage, TextWriter w)
+        public void Log(string logMessage, StreamWriter w)
         {
             w.WriteLine("{0} {1}: {2}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString(), logMessage);
         }
