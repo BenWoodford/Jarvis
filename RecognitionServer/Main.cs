@@ -86,6 +86,9 @@ namespace RecognitionServer
             }
 
             this.listenrec.LoadGrammar(new Grammar(new GrammarBuilder(new Choices("Jarvis"))));
+            this.listenrec.EndSilenceTimeoutAmbiguous = TimeSpan.FromMilliseconds(50);
+            this.listenrec.InitialSilenceTimeout = TimeSpan.FromMilliseconds(50);
+            logger.Info("Recognition System Online");
 
             while(true)
                 this.listenrec.Recognize();

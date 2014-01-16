@@ -18,10 +18,10 @@ namespace Media
             this.server = server;
             server.GetLogger().Info("Enabling Media.dll Plugin");
             server.GetLogger().Info("Updating Song Library");
+            SongHelper.GetSongs();
 
             commands.Add(new Commands.Play(this));
             commands.Add(new Commands.Controls(this));
-            commands.Add(new Commands.RandomSong(this));
 
             return true;
         }
