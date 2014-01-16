@@ -53,7 +53,7 @@ namespace RecognitionServer.Plugins
             m.AddCommand("Media", "nextsong", tmpBuilder, "next song", 0, "Plays the next song");
             m.AddCommand("Media", "nextsong", tmpBuilder, "play the next song", 0, "Plays the next song");
             m.AddCommand("Media", "nextsong", tmpBuilder, "skip this song", 0, "Plays the next song");
-            m.AddCommand("Media", "nextsong", tmpBuilder, "next song", 0, "Plays the next song");
+            m.AddCommand("Media", "nextsong", tmpBuilder, "play next song", 0, "Plays the next song");
 
             tmpBuilder = new GrammarBuilder();
             tmpBuilder.Append(new Choices("pause song", "pause this song", "pause this", "pause playback", "pause song playback"));
@@ -251,7 +251,7 @@ namespace RecognitionServer.Plugins
             FrameworkDispatcher.Update();
             MediaPlayer.Play(s, i);
 
-            this.currentSong = s[i].Name;
+            this.currentSong = s[i+1].Name;
         }
 
         public void NextSong()
@@ -280,6 +280,9 @@ namespace RecognitionServer.Plugins
 
         public void CurrentlyPlaying()
         {
+            if (MediaPlayer.State != MediaState.Playing)
+                return;
+
             MediaPlayer.Volume = (float)0.1;
             this.main.speech.Say("The current song is " + this.currentSong, false);
             MediaPlayer.Volume = (float)1;

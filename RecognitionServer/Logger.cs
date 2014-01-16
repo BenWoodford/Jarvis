@@ -24,7 +24,7 @@ namespace RecognitionServer
             }
             else
             {
-                Console.WriteLine("[" + level + "] " + s);
+                Console.WriteLine("[" + level + ":{0}] " + s, DateTime.Now.ToLongTimeString());
             }
         }
 

@@ -8,11 +8,12 @@ namespace RecognitionServer
 {
     class Speaker
     {
-        SpeechSynthesizer synth;
+        public SpeechSynthesizer synth;
 
         public Speaker()
         {
             synth = new SpeechSynthesizer();
+            synth.Volume = 100;
         }
 
         public void Say(String s, Boolean async = true)
